@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.antoniocrocha.udemy.entities.Category;
 import com.antoniocrocha.udemy.entities.Order;
 import com.antoniocrocha.udemy.entities.OrderItem;
+import com.antoniocrocha.udemy.entities.Payment;
 import com.antoniocrocha.udemy.entities.Product;
 import com.antoniocrocha.udemy.entities.User;
 import com.antoniocrocha.udemy.entities.enums.OrderStatus;
@@ -91,6 +92,10 @@ public class TestConfig implements CommandLineRunner {
 		
 		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
 		
+		Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
+		o1.setPayment(pay1);
+		
+		orderRepository.save(o1);
 		
 		
 		
